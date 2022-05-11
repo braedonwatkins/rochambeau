@@ -47,7 +47,7 @@ buttons.forEach((button) => {
 */
 function gameLoop(button) {
     //0. Check Game State
-    if(gameState === 'idle'){gameState = 'active';}
+    if(gameState === 'idle'){gameState = 'active';}    
     else if(gameState !== 'active'){return;}
 
     //1. Computer Selects Move
@@ -91,26 +91,50 @@ function setGameState(button, gameState) {
     document.querySelector('#your-points').innerHTML = `Your Points: ${playerScore}`;
     document.querySelector('#ai-points').innerHTML = `AI Points: ${aiScore}`;
 
+
     if(playerScore >= 5){gameState = 'win';}
     else if(aiScore >= 5){gameState = 'lose';}
 
     if(gameState === 'win'){
-        // document.querySelector('.points').setAttribute("style","display:none");
-        document.querySelector('.win').setAttribute("style","display:flex");
+        // document.querySelector('.win').setAttribute("style","display:flex"); //Game Results
+        document.querySelector('.results').textContent = 'You Won! '; 
+        
+        // const balanceDiv = document.createElement("div");
+        const symbolSpan = document.querySelector('.results');
+        const link = document.createElement("a");
+      
+        link.setAttribute('href', `./index.html`);
+        link.textContent = 'Play Again?';
+      
+        symbolSpan.appendChild(link);
+        // balanceDiv.appendChild(symbolSpan);
+        // document.body.appendChild(balanceDiv);
 
         button.removeEventListener('click', () => gameLoop(button));
     }
     else if(gameState === 'lose') {
-        // document.querySelector('.points').setAttribute("style","display:none");
-        document.querySelector('.lose').setAttribute("style","display:flex");
+        // document.querySelector('.lose').setAttribute("style","display:flex"); //Game Results
+        document.querySelector('.results').textContent = 'You Lost! '; 
+        
+        // const balanceDiv = document.createElement("div");
+        const symbolSpan = document.querySelector('.results');
+        const link = document.createElement("a");
+      
+        link.setAttribute('href', `./index.html`);
+        link.textContent = ' Try Again?';
+      
+        symbolSpan.appendChild(link);
+        // balanceDiv.appendChild(symbolSpan);
+        // document.body.appendChild(balanceDiv);
 
         button.removeEventListener('click', () => gameLoop(button));
     }
     else {
 
-        document.querySelector('.spacing').setAttribute("style","display:none");
+        document.querySelector('.spacing').setAttribute("style","display:none"); //Round Results
         document.querySelector('.points').setAttribute("style","display:flex");
     }
+
     
     console.log(`Game State: ${gameState}`);
     return gameState;
