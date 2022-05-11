@@ -5,8 +5,8 @@
 } */
 
 .background {
-    display: flex;
-    flex: 100 1 auto;
+    /* display: flex;
+    flex: 100 1 auto; */
     /* max-width: 100%; */
     /* background-size: cover;
     background-position: center; */
@@ -30,10 +30,10 @@
 
 
 .droplet {
-    height: 100vh;
+    /* height: 100vh;
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
 
     /* background-image: url(./droplet-solid.svg); */
     /* background: 
@@ -43,15 +43,15 @@
     /* animation:aaa 11s infinite linear; */
 }
 
-.flame {
+/* .flame {
 
 }
 
 .leaf {
 
-}
+} */
 
-@keyframes aaa {
+/* @keyframes aaa {
     0%,100% {
       transform: translate(0%);
     }
@@ -61,4 +61,4 @@
     50.1% {
       transform: translate(-100%, 62.5%);
     }
-  }
+} */
