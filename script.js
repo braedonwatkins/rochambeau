@@ -97,14 +97,14 @@ function setGameState(button, gameState) {
 
     if(gameState === 'win'){
         // document.querySelector('.win').setAttribute("style","display:flex"); //Game Results
-        document.querySelector('.results').textContent = 'You Won! '; 
+        document.querySelector('.results').innerText = 'You Won! '; 
         
         // const balanceDiv = document.createElement("div");
         const symbolSpan = document.querySelector('.results');
         const link = document.createElement("a");
       
         link.setAttribute('href', `./index.html`);
-        link.textContent = 'Play Again?';
+        link.innerText = 'Play Again?';
       
         symbolSpan.appendChild(link);
         // balanceDiv.appendChild(symbolSpan);
@@ -114,14 +114,14 @@ function setGameState(button, gameState) {
     }
     else if(gameState === 'lose') {
         // document.querySelector('.lose').setAttribute("style","display:flex"); //Game Results
-        document.querySelector('.results').textContent = 'You Lost! '; 
+        document.querySelector('.results').innerText = 'You Lost! '; 
         
         // const balanceDiv = document.createElement("div");
         const symbolSpan = document.querySelector('.results');
         const link = document.createElement("a");
       
         link.setAttribute('href', `./index.html`);
-        link.textContent = ' Try Again?';
+        link.innerText = ' Try Again?';
       
         symbolSpan.appendChild(link);
         // balanceDiv.appendChild(symbolSpan);
@@ -131,7 +131,8 @@ function setGameState(button, gameState) {
     }
     else {
 
-        document.querySelector('.spacing').setAttribute("style","display:none"); //Round Results
+        // document.querySelector('.spacing').setAttribute("style","display:none"); //Round Results
+
         document.querySelector('.points').setAttribute("style","display:flex");
     }
 
