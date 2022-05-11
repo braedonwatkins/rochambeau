@@ -46,7 +46,7 @@ buttons.forEach((button) => {
 5. Check Win/Lose
 */
 function gameLoop(button) {
-    //0. Check Win/Lose
+    //0. Check Game State
     if(gameState === 'idle'){gameState = 'active';}
     else if(gameState !== 'active'){return;}
 
@@ -64,6 +64,7 @@ function gameLoop(button) {
     else if(roundResult < 0){aiScore++;}
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
 
+    //5. Set Game State
     gameState = setGameState(button, gameState);
 }
 
