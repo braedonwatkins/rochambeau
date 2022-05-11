@@ -46,17 +46,6 @@ buttons.forEach((button) => {
 5. Check Win/Lose
 */
 function gameLoop(button) {
-    //update game state
-    if(gameState === 'idle') {gameState = 'active';}
-    else if(gameState === 'win') {
-        button.removeEventListener('click', () => gameLoop(button));
-        return;
-    }
-    else if(gameState === 'lose') {
-        button.removeEventListener('click', () => gameLoop(button));
-        return;
-    }
-
     //1. Computer Selects Move
     let aiChoice = Math.floor(Math.random() * 3);
 
@@ -72,9 +61,9 @@ function gameLoop(button) {
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
 
     //5. Check Win/Lose
-    if(playerScore >= 5){gameState = 'win';}
-    else if(aiScore >= 5){gameState = 'lose';}
+    gameState = setGameState(button, gameState);
     console.log(`Game State: ${gameState}`);
+    if(gameState !== 'active'){return;}
 }
 
 // take button info and turn into numeric choice 
@@ -96,17 +85,26 @@ function roundLogic(playerChoice, aiChoice) {
     else {console.error("roundLogic() invalid choice"); return null;}
 }
 
+function setGameState(button, gameState) {
+    if(playerScore >= 5){gameState = 'win';}
+    else if(aiScore >= 5){gameState = 'lose';}
 
-//Display Based on gameState
-if(gameState = 'idle') {
-
+    
+    if(gameState ==='win'){
+        document.querySelector('.points').textContent = 'Replacement Text :)';
+        button.removeEventListener('click', () => gameLoop(button));
+    }
+    else if(gameState === 'lose') {
+        document.querySelector('.points').textContent = 'Replacement Text :(';
+        button.removeEventListener('click', () => gameLoop(button));
+    }
+    else {
+        gameState = 'active';
+        document.querySelector('.points').setAttribute("style","display:flex");
+    }
+    return gameState;
 }
-else if(gameState = 'active') {
 
-}
-else if(gameState = 'win') {
-
-}
-else if(gameState = 'lose') {
-
-}
+// if(gameState ==='idle') {
+//     document.querySelector('.points').setAttribute("style","display:none");
+// }

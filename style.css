@@ -34,7 +34,7 @@ ul {
 }
 
 .points {
-    display: flex;
+    display: none; /* so that it loads in empty*/
     flex: 1 1 auto;
     flex-direction: row;
     justify-content: space-evenly;
