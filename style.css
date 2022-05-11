@@ -48,9 +48,29 @@ ul {
     flex: 10 1 auto;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: baseline;
 
     border: solid green;
 }
+
+button {
+    padding: 16px 64px;
+    border-radius: 8px;
+    background: royalblue;
+    /* border: 10px solid royalblue; */
+    color: white;
+  
+    font-size: 12px;
+}
+
+button:hover {
+    background: lightblue;
+}
+
+/* button:focus {
+    background: lightblue;
+    border: 10px solid lightblue;
+} */
 
 .footer {
     display: flex;
