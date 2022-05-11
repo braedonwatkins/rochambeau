@@ -64,13 +64,10 @@ function gameLoop(button) {
     //2. Player Selects Move
     let playerChoice = button.id;
 
-    // let playerChoiceString = document.createElement("p");
-    // playerChoiceString.innerText = `You Chose ${playerChoice}\n`;
-    // playerChoiceString.setAttribute('style', 'color: royalblue');
+    
+    // Maybe change variable color based on choice? Could be fun
+    resultSpan.innerText = `You Chose ${playerChoice}\n AI Chose ${aiChoice}`;
 
-    // let aiChoiceString = `AI Chose ${aiChoice}`;
-    // document.querySelector('.results').innerText = playerChoiceString.innerText;
-    document.querySelector('.results').innerText = `You Chose ${playerChoice}\n AI Chose ${aiChoice}`;
     
     //3. Calculate Round Logic
     let roundResult = roundLogic(playerChoice, aiChoice);
