@@ -54,12 +54,14 @@ ul {
 }
 
 .results {
-    display: flex;
+    margin: 0px 64px;
+    
+    /* display: flex;
     flex: 1 1 auto;
     justify-content: center;
     align-items: center;
 
-    /* border: solid red; */
+    border: solid red; */
 }
 
 .spacing {
@@ -77,8 +79,10 @@ ul {
     display: flex;
     flex: 10 1 auto;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: baseline;
+
+    flex-wrap: wrap;
 
     padding: 32px 0px;
 
