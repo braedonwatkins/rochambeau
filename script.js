@@ -79,14 +79,6 @@ function gameLoop(button) {
     gameState = setGameState(button, gameState, roundResult);
 }
 
-// take button info and turn into numeric choice 
-function getPlayerChoice(type) {
-    if(type === "grass"){return 0;}
-    else if(type === "water"){return 1;}
-    else if(type == "fire"){return 2;}
-    else{console.error("getPlayerChoice() invalid type"); return null;}
-}
-
 // determine winner of each round
 function roundLogic(playerChoice, aiChoice) {
     console.log(`Player Choice: ${playerChoice}\n AI Choice: ${aiChoice}`);

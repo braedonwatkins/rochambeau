@@ -1,0 +1,13 @@
+this is where i put dead code just in case i need to quickly look over it again
+
+HTML:
+
+CSS:
+
+JS:
+// take button info and turn into numeric choice 
+function getPlayerChoice(type) {
+    if(type === "grass"){return 0;}
+    else if(type === "water"){return 1;}
+    else if(type == "fire"){return 2;}
+    else{console.error("getPlayerChoice() invalid type"); return null;}
