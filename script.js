@@ -49,8 +49,8 @@ buttons.forEach((button) => {
 */
 function gameLoop(button) {
     //0. Check Game State
-    if(gameState === 'idle'){gameState = 'active';}    
-    else if(gameState !== 'active'){return;}
+    if(gameState === 'idle'){gameState = 'active'; document.querySelector('.points').setAttribute("style","display:flex");}    
+    else if(gameState !== 'active'){return;} // cant break this into a function... :/
 
     //1. Computer Selects Move
     let aiNum = Math.floor(Math.random() * 3);
@@ -75,7 +75,8 @@ function gameLoop(button) {
     else if(roundResult === 'loss'){aiScore++;}
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
 
-    //5. Set Game State
+    //5. Set Game State + Points
+    setScore();
     gameState = setGameState(button, gameState, roundResult);
 }
 
@@ -90,16 +91,16 @@ function roundLogic(playerChoice, aiChoice) {
     else {console.error("roundLogic() invalid choice"); return null;}
 }
 
-function setGameState(button, gameState) {
+function setScore(){
     document.querySelector('#your-points').innerHTML = `Your Points: ${playerScore}`;
     document.querySelector('#ai-points').innerHTML = `AI Points: ${aiScore}`;
+}
 
-
+function setGameState(button, gameState) {
     if(playerScore >= 5){gameState = 'win';}
     else if(aiScore >= 5){gameState = 'lose';}
 
     if(gameState === 'win'){
-        // document.querySelector('.win').setAttribute("style","display:flex"); //Game Results
         document.querySelector('.results').innerText = 'You Won! '; 
       
         link.setAttribute('href', `./index.html`);
@@ -109,7 +110,6 @@ function setGameState(button, gameState) {
         button.removeEventListener('click', () => gameLoop(button));
     }
     else if(gameState === 'lose') {
-        // document.querySelector('.lose').setAttribute("style","display:flex"); //Game Results
         document.querySelector('.results').innerText = 'You Lost! '; 
       
         link.setAttribute('href', `./index.html`);
@@ -118,12 +118,6 @@ function setGameState(button, gameState) {
         resultSpan.append(link);
 
         button.removeEventListener('click', () => gameLoop(button));
-    }
-    else {
-
-        // document.querySelector('.spacing').setAttribute("style","display:none"); //Round Results
-
-        document.querySelector('.points').setAttribute("style","display:flex");
     }
 
     
