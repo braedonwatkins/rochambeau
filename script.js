@@ -53,26 +53,26 @@ function gameLoop(button) {
     else if(gameState !== 'active'){return;}
 
     //1. Computer Selects Move
-    let aiChoice = Math.floor(Math.random() * 3);
+    let aiNum = Math.floor(Math.random() * 3);
+    let aiChoice;
 
-    let aiChoiceString
-    if(aiChoice === 0) {aiChoiceString = 'grass';}
-    else if(aiChoice === 1) {aiChoiceString = 'water';}
-    else if(aiChoice === 2) {aiChoiceString = 'fire';}
+    if(aiNum === 0) {aiChoice = 'grass';}
+    else if(aiNum === 1) {aiChoice = 'water';}
+    else if(aiNum === 2) {aiChoice = 'fire';}
     else {console.error("error gameLoop() w/ aiChoice");}
 
 
     //2. Player Selects Move
-    let playerChoice = getPlayerChoice(button.id);
+    let playerChoice = button.id;
 
-    document.querySelector('.results').innerText = `You Chose ${button.id}\n AI Chose ${aiChoiceString}`;
+    document.querySelector('.results').innerText = `You Chose ${button.id}\n AI Chose ${aiChoice}`;
     
     //3. Calculate Round Logic
     let roundResult = roundLogic(playerChoice, aiChoice);
 
     //4. Update Scores
-    if(roundResult > 0){playerScore++;}
-    else if(roundResult < 0){aiScore++;}
+    if(roundResult === 'win'){playerScore++;}
+    else if(roundResult === 'loss'){aiScore++;}
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
 
     //5. Set Game State
@@ -92,9 +92,9 @@ function roundLogic(playerChoice, aiChoice) {
     console.log(`Player Choice: ${playerChoice}\n AI Choice: ${aiChoice}`);
 
     if(playerChoice === aiChoice) {return 0;}
-    else if(playerChoice === 0) {return aiChoice === 1 ? 1 : -1;}
-    else if(playerChoice === 1) {return aiChoice === 2 ? 1 : -1;}
-    else if(playerChoice === 2) {return aiChoice === 0 ? 1 : -1;}
+    else if(playerChoice === 'grass') {return aiChoice === 'water' ? 'win': 'loss';}
+    else if(playerChoice === 'water') {return aiChoice ===  'fire' ? 'win' : 'loss';}
+    else if(playerChoice === 'fire') {return aiChoice === 'grass' ? 'win' : 'loss';}
     else {console.error("roundLogic() invalid choice"); return null;}
 }
 
