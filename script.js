@@ -73,10 +73,10 @@ function gameLoop(button) {
     //4. Update Scores
     if(roundResult === 'win'){playerScore++;}
     else if(roundResult === 'loss'){aiScore++;}
+    showScore();
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
 
-    //5. Set Game State + Points
-    setScore();
+    //5. Set Game State
     gameState = setGameState(button, gameState, roundResult);
 }
 
@@ -91,7 +91,7 @@ function roundLogic(playerChoice, aiChoice) {
     else {console.error("roundLogic() invalid choice"); return null;}
 }
 
-function setScore(){
+function showScore(){
     document.querySelector('#your-points').innerHTML = `Your Points: ${playerScore}`;
     document.querySelector('#ai-points').innerHTML = `AI Points: ${aiScore}`;
 }
