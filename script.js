@@ -55,17 +55,17 @@ function gameLoop(button) {
     //1. Computer Selects Move
     let aiChoice = Math.floor(Math.random() * 3);
 
-
-    //2. Player Selects Move
-    let playerChoice = getPlayerChoice(button.id);
-
-    document.querySelector('.results').innerText = `You Chose ${button.id}\n`;
     let aiChoiceString
     if(aiChoice === 0) {aiChoiceString = 'grass';}
     else if(aiChoice === 1) {aiChoiceString = 'water';}
     else if(aiChoice === 2) {aiChoiceString = 'fire';}
     else {console.error("error gameLoop() w/ aiChoice");}
-    resultSpan.append(`AI Chose: ${aiChoiceString}`)
+
+
+    //2. Player Selects Move
+    let playerChoice = getPlayerChoice(button.id);
+
+    document.querySelector('.results').innerText = `You Chose ${button.id}\n AI Chose ${aiChoiceString}`;
     
     //3. Calculate Round Logic
     let roundResult = roundLogic(playerChoice, aiChoice);
