@@ -42,12 +42,17 @@ let gameState = 'idle';
 */
 if(gameState !== 'win' || gameState !== 'lose') {
     //1. Player Selects Move
-    grs.onclick = () => ButtonSelect('grass');
-    wtr.onclick = () => ButtonSelect('water');
-    fir.onclick = () => ButtonSelect('fire');
+    let playerChoice = '';
+    grs.onclick = () => ButtonSelect('grass', playerChoice);
+    wtr.onclick = () => ButtonSelect('water', playerChoice);
+    fir.onclick = () => ButtonSelect('fire', playerChoice);
+
 
     //2. Computer Selects Move
     let aiChoice = choices[Math.floor(Math.random() * 3)];
+
+    //3. Calculate Logic
+    
 }
 
 function ButtonSelect(type) {
@@ -57,7 +62,8 @@ function ButtonSelect(type) {
         - maybe you can get away with just disabling the buttons when entering the state
         - for now leaving as is
     */
-   
-    alert(`${type} move!`);
+    
+    playerChoice = type;
+    alert(`${playerChoice} move!`);
     // alert(`Current Game State: ${gameState}`)
 }
