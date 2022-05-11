@@ -1,4 +1,6 @@
 const buttons = document.querySelectorAll('button');
+const resultSpan = document.querySelector('.results');
+const link = document.createElement("a");
 
 
 //NOTE: Game States
@@ -53,8 +55,17 @@ function gameLoop(button) {
     //1. Computer Selects Move
     let aiChoice = Math.floor(Math.random() * 3);
 
+
     //2. Player Selects Move
     let playerChoice = getPlayerChoice(button.id);
+
+    document.querySelector('.results').innerText = `You Chose ${button.id}\n`;
+    let aiChoiceString
+    if(aiChoice === 0) {aiChoiceString = 'grass';}
+    else if(aiChoice === 1) {aiChoiceString = 'water';}
+    else if(aiChoice === 2) {aiChoiceString = 'fire';}
+    else {console.error("error gameLoop() w/ aiChoice");}
+    resultSpan.append(`AI Chose: ${aiChoiceString}`)
     
     //3. Calculate Round Logic
     let roundResult = roundLogic(playerChoice, aiChoice);
@@ -65,7 +76,7 @@ function gameLoop(button) {
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
 
     //5. Set Game State
-    gameState = setGameState(button, gameState);
+    gameState = setGameState(button, gameState, roundResult);
 }
 
 // take button info and turn into numeric choice 
@@ -98,34 +109,21 @@ function setGameState(button, gameState) {
     if(gameState === 'win'){
         // document.querySelector('.win').setAttribute("style","display:flex"); //Game Results
         document.querySelector('.results').innerText = 'You Won! '; 
-        
-        // const balanceDiv = document.createElement("div");
-        const symbolSpan = document.querySelector('.results');
-        const link = document.createElement("a");
       
         link.setAttribute('href', `./index.html`);
         link.innerText = 'Play Again?';
-      
-        symbolSpan.appendChild(link);
-        // balanceDiv.appendChild(symbolSpan);
-        // document.body.appendChild(balanceDiv);
+        resultSpan.append(link);
 
         button.removeEventListener('click', () => gameLoop(button));
     }
     else if(gameState === 'lose') {
         // document.querySelector('.lose').setAttribute("style","display:flex"); //Game Results
         document.querySelector('.results').innerText = 'You Lost! '; 
-        
-        // const balanceDiv = document.createElement("div");
-        const symbolSpan = document.querySelector('.results');
-        const link = document.createElement("a");
       
         link.setAttribute('href', `./index.html`);
         link.innerText = ' Try Again?';
       
-        symbolSpan.appendChild(link);
-        // balanceDiv.appendChild(symbolSpan);
-        // document.body.appendChild(balanceDiv);
+        resultSpan.append(link);
 
         button.removeEventListener('click', () => gameLoop(button));
     }
