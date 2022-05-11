@@ -1,0 +1,64 @@
+/* Hoping to just get some animation done here, we'll see how it goes */
+
+/* body, html {
+  
+} */
+
+.background {
+    display: flex;
+    flex: 100 1 auto;
+    /* max-width: 100%; */
+    /* background-size: cover;
+    background-position: center; */
+
+
+    
+    /* background-image: linear-gradient(45deg, #6303B1, #ff0099);
+	transform: skewY(-11deg); */
+
+    /* background: url("./droplet-solid.svg") top left/20px 50px;
+    background-position: center; 
+    background-repeat:repeat;
+    background-size: cover;  */
+        
+
+    /* background-repeat:repeat-y; */
+    /* animation:aaa 11s infinite linear; */
+    /* background-image: linear-gradient(-60deg, #ef6751 50%, #ffbc41 50%); */
+}
+
+
+
+.droplet {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    /* background-image: url(./droplet-solid.svg); */
+    /* background: 
+        url(./droplet-solid.svg) top left/1000px 1000px; */
+    /* background-size:auto; */
+    /* background-repeat: no-repeat, repeat-y; */
+    /* animation:aaa 11s infinite linear; */
+}
+
+.flame {
+
+}
+
+.leaf {
+
+}
+
+@keyframes aaa {
+    0%,100% {
+      transform: translate(0%);
+    }
+    50% {
+      transform: translate(100%, -62.5%);
+    }
+    50.1% {
+      transform: translate(-100%, 62.5%);
+    }
+  }
