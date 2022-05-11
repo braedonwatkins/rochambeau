@@ -43,6 +43,14 @@ ul {
     border: solid red;
 }
 
+.win, .lose {
+    display: none;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+
+    border: solid red;
+}
 
 .buttons {
     display: flex;
