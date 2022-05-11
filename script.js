@@ -1,7 +1,8 @@
 const choices = [{choice: 'grass', value: 0}, {choice: 'water', value: 1}, {choice: 'fire', value: 2}];
-const wtr = document.querySelector('#water');
-const grs = document.querySelector('#grass');
-const fir = document.querySelector('#fire');
+const buttons = document.querySelectorAll('button');
+// const wtr = document.querySelector('#water');
+// const grs = document.querySelector('#grass');
+// const fir = document.querySelector('#fire');
 
 //NOTE: Game States
 /*
@@ -40,13 +41,29 @@ let gameState = 'idle';
     3. Calculate logic
     4. Update game state
 */
-if(gameState !== 'win' || gameState !== 'lose') {
+if(gameState !== 'win' && gameState !== 'lose') {
     //1. Player Selects Move
     let playerChoice = '';
-    grs.onclick = () => ButtonSelect('grass', playerChoice);
-    wtr.onclick = () => ButtonSelect('water', playerChoice);
-    fir.onclick = () => ButtonSelect('fire', playerChoice);
+    // buttons.forEach((button) => {
+    //     button.addEventListener('click', () => {
+    //         getPlayerChoice();
+    //     }); 
+    // });
 
+    /* This One Works! */
+    buttons.forEach((button) => {
+
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
+          playerChoice = getPlayerChoice(button.id);
+        });
+      });
+
+    alert(`${playerChoice}`)
+
+    // grs.onclick = () => ButtonSelect('grass');
+    // wtr.onclick = () => ButtonSelect('water');
+    // fir.onclick = () => ButtonSelect('fire');
 
     //2. Computer Selects Move
     let aiChoice = choices[Math.floor(Math.random() * 3)];
@@ -55,15 +72,11 @@ if(gameState !== 'win' || gameState !== 'lose') {
     
 }
 
-function ButtonSelect(type) {
-    if(gameState === 'idle') {gameState = 'active';}
-    else if(gameState === 'win' || gameState === 'lose') {return;} 
-    /* NOTE:
-        - maybe you can get away with just disabling the buttons when entering the state
-        - for now leaving as is
-    */
-    
-    playerChoice = type;
-    alert(`${playerChoice} move!`);
-    // alert(`Current Game State: ${gameState}`)
+function getPlayerChoice(buttonChoice) {
+    if(buttonChoice === 'grass') {playerChoice = 0;}
+    else if(buttonChoice === 'water') {playerChoice = 1;}
+    else if(buttonChoice === 'fire') {playerChoice = 2;}
+    else {return null;} 
+
+    return playerChoice;
 }
