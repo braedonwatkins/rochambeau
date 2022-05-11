@@ -1,8 +1,4 @@
-// const choices = [{choice: 'grass', value: 0}, {choice: 'water', value: 1}, {choice: 'fire', value: 2}];
 const buttons = document.querySelectorAll('button');
-// const wtr = document.querySelector('#water');
-// const grs = document.querySelector('#grass');
-// const fir = document.querySelector('#fire');
 
 //NOTE: Game States
 /*
@@ -45,6 +41,9 @@ if(gameState !== 'win' && gameState !== 'lose') {
     buttons.forEach((button) => {
         // and for each one we add a 'click' listener
         button.addEventListener('click', () => {
+            //update game state
+            if(gameState === 'idle') {gameState = 'active';}
+
             //1. Computer Selects Move
             let aiChoice = Math.floor(Math.random() * 3);
 
@@ -54,6 +53,7 @@ if(gameState !== 'win' && gameState !== 'lose') {
             //3. Calculate Round Logic
             let roundResult = roundLogic(playerChoice, aiChoice);
 
+            //4. Calculate 
         });
     });
 
