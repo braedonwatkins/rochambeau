@@ -1,3 +1,4 @@
+const choices = [{choice: 'grass', value: 0}, {choice: 'water', value: 1}, {choice: 'fire', value: 2}];
 const wtr = document.querySelector('#water');
 const grs = document.querySelector('#grass');
 const fir = document.querySelector('#fire');
@@ -32,6 +33,23 @@ const fir = document.querySelector('#fire');
 let gameState = 'idle';
 
 
+//Game Loop
+/*
+    1. Player selects move
+    2. Computer selects move
+    3. Calculate logic
+    4. Update game state
+*/
+if(gameState !== 'win' || gameState !== 'lose') {
+    //1. Player Selects Move
+    grs.onclick = () => ButtonSelect('grass');
+    wtr.onclick = () => ButtonSelect('water');
+    fir.onclick = () => ButtonSelect('fire');
+
+    //2. Computer Selects Move
+    let aiChoice = choices[Math.floor(Math.random() * 3)];
+}
+
 function ButtonSelect(type) {
     if(gameState === 'idle') {gameState = 'active';}
     else if(gameState === 'win' || gameState === 'lose') {return;} 
@@ -40,16 +58,6 @@ function ButtonSelect(type) {
         - for now leaving as is
     */
    
-    // alert(`${type} move!`);
+    alert(`${type} move!`);
     // alert(`Current Game State: ${gameState}`)
 }
-//Game Loop
-/*
-*/
-do {
-    wtr.onclick = () => ButtonSelect('water');
-    grs.onclick = () => ButtonSelect('grass');
-    fir.onclick = () => ButtonSelect('fire');
-
-}while(gameState !== 'win' || gameState !== 'lose')
-
