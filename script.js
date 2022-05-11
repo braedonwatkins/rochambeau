@@ -46,6 +46,10 @@ buttons.forEach((button) => {
 5. Check Win/Lose
 */
 function gameLoop(button) {
+    //0. Check Win/Lose
+    gameState = setGameState(button, gameState);
+    if(gameState !== 'active'){return;}
+
     //1. Computer Selects Move
     let aiChoice = Math.floor(Math.random() * 3);
 
@@ -59,11 +63,6 @@ function gameLoop(button) {
     if(roundResult > 0){playerScore++;}
     else if(roundResult < 0){aiScore++;}
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
-
-    //5. Check Win/Lose
-    gameState = setGameState(button, gameState);
-    console.log(`Game State: ${gameState}`);
-    if(gameState !== 'active'){return;}
 }
 
 // take button info and turn into numeric choice 
@@ -89,22 +88,23 @@ function setGameState(button, gameState) {
     if(playerScore >= 5){gameState = 'win';}
     else if(aiScore >= 5){gameState = 'lose';}
 
-    
-    if(gameState ==='win'){
-        document.querySelector('.points').textContent = 'Replacement Text :)';
+    if(gameState === 'win'){
+        document.querySelector('.points').setAttribute("style","display:none");
+        document.querySelector('.win').setAttribute("style","display:flex");
+
         button.removeEventListener('click', () => gameLoop(button));
     }
     else if(gameState === 'lose') {
-        document.querySelector('.points').textContent = 'Replacement Text :(';
+        document.querySelector('.points').setAttribute("style","display:none");
+        document.querySelector('.win').setAttribute("style","display:flex");
+
         button.removeEventListener('click', () => gameLoop(button));
     }
     else {
         gameState = 'active';
         document.querySelector('.points').setAttribute("style","display:flex");
     }
+    
+    console.log(`Game State: ${gameState}`);
     return gameState;
 }
-
-// if(gameState ==='idle') {
-//     document.querySelector('.points').setAttribute("style","display:none");
-// }
