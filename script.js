@@ -107,7 +107,7 @@ function setGameState(button, gameState) {
     }
     else {
 
-        // gameState = 'active';
+        document.querySelector('.spacing').setAttribute("style","display:none");
         document.querySelector('.points').setAttribute("style","display:flex");
     }
     
