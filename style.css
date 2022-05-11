@@ -128,5 +128,5 @@ button#fire:hover {
     align-items: center;
     background-color: lightgray;
 
-    border: solid yellow;
+    /* border: solid yellow; */
 }
