@@ -1,15 +1,16 @@
 body, html {
     height: 100vh;
+    margin: 0;
 }
 
-a{
+/* a{
     text-decoration: none;
     color: lightskyblue;
-}
-
+} */
+/* 
 a:hover {
     background-color: honeydew;
-}
+} */
 
 body {
     display: flex;
@@ -27,7 +28,7 @@ ul {
 }
 
 
-.header {
+.header, .footer {
     display: flex;
     flex: 1 1 auto;
 
@@ -112,8 +113,9 @@ button#fire:hover {
 } */
 
 .footer {
-    display: flex;
-    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
 
     border: solid yellow;
 }
