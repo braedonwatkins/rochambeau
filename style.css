@@ -1,0 +1,43 @@
+body, html {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header {
+    display: flex;
+    flex: 1 1 auto;
+
+    border: solid red;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 10 1 auto;
+
+    border: solid blue;
+}
+
+.points {
+    display: flex;
+
+    border: solid green;
+}
+
+.buttons {
+    display: flex;
+
+    border: solid red;
+}
+
+.footer {
+    display: flex;
+    flex: 1 1 auto;
+
+    border: solid yellow;
+}
