@@ -7,6 +7,16 @@ body {
     flex-direction: column;
 }
 
+/* ul {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  
+    list-style: none;
+    white-space: nowrap;
+} */
+
 
 .header {
     display: flex;
@@ -25,14 +35,19 @@ body {
 
 .points {
     display: flex;
+    flex-direction: row;
 
-    border: solid green;
+    border: solid red;
+}
+
+.user-points {
+    
 }
 
 .buttons {
     display: flex;
 
-    border: solid red;
+    border: solid green;
 }
 
 .footer {
