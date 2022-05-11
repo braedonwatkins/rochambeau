@@ -64,7 +64,13 @@ function gameLoop(button) {
     //2. Player Selects Move
     let playerChoice = button.id;
 
-    document.querySelector('.results').innerText = `You Chose ${button.id}\n AI Chose ${aiChoice}`;
+    // let playerChoiceString = document.createElement("p");
+    // playerChoiceString.innerText = `You Chose ${playerChoice}\n`;
+    // playerChoiceString.setAttribute('style', 'color: royalblue');
+
+    // let aiChoiceString = `AI Chose ${aiChoice}`;
+    // document.querySelector('.results').innerText = playerChoiceString.innerText;
+    document.querySelector('.results').innerText = `You Chose ${playerChoice}\n AI Chose ${aiChoice}`;
     
     //3. Calculate Round Logic
     let roundResult = roundLogic(playerChoice, aiChoice);
@@ -100,7 +106,7 @@ function setGameState(button, gameState) {
     else if(aiScore >= 5){gameState = 'lose';}
 
     if(gameState === 'win'){
-        document.querySelector('.results').innerText = 'You Won! '; 
+        resultSpan.innerText = 'You Won! '; 
       
         link.setAttribute('href', `./index.html`);
         link.innerText = 'Play Again?';
@@ -109,7 +115,7 @@ function setGameState(button, gameState) {
         button.removeEventListener('click', () => gameLoop(button));
     }
     else if(gameState === 'lose') {
-        document.querySelector('.results').innerText = 'You Lost! '; 
+        resultSpan.innerText = 'You Lost! '; 
       
         link.setAttribute('href', `./index.html`);
         link.innerText = ' Try Again?';
