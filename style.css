@@ -59,15 +59,34 @@ ul {
 button {
     padding: 16px 64px;
     border-radius: 8px;
-    background: royalblue;
-    /* border: 10px solid royalblue; */
     color: white;
   
     font-size: 12px;
 }
 
-button:hover {
-    background: lightblue;
+
+button#water {
+    background: royalblue;
+    
+}
+button#water:hover {
+    background: deepskyblue;
+}
+
+button#grass {
+    background: forestgreen;
+    
+}
+button#grass:hover {
+    background: darkseagreen;
+}
+
+button#fire {
+    background: firebrick;
+    
+}
+button#fire:hover {
+    background: salmon;
 }
 
 /* button:focus {
