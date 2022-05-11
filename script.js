@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll('button');
 
+
 //NOTE: Game States
 /*
     Idle:
@@ -29,15 +30,6 @@ const buttons = document.querySelectorAll('button');
 */
 let gameState = 'idle';
 
-
-//Game Loop
-/*
-1. Player selects move
-2. Computer selects move
-3. Calculate logic
-4. Update Scores
-5. Check Win/Lose
-*/
 let aiScore = 0;
 let playerScore = 0;
 
@@ -45,6 +37,14 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => gameLoop(button));
 });
 
+//NOTE: Game Loop
+/*
+1. Player selects move
+2. Computer selects move
+3. Calculate logic
+4. Update Scores
+5. Check Win/Lose
+*/
 function gameLoop(button) {
     //update game state
     if(gameState === 'idle') {gameState = 'active';}
@@ -94,4 +94,19 @@ function roundLogic(playerChoice, aiChoice) {
     else if(playerChoice === 1) {return aiChoice === 2 ? 1 : -1;}
     else if(playerChoice === 2) {return aiChoice === 0 ? 1 : -1;}
     else {console.error("roundLogic() invalid choice"); return null;}
+}
+
+
+//Display Based on gameState
+if(gameState = 'idle') {
+
+}
+else if(gameState = 'active') {
+
+}
+else if(gameState = 'win') {
+
+}
+else if(gameState = 'lose') {
+
 }
