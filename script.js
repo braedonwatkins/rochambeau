@@ -1,4 +1,4 @@
-const choices = [{choice: 'grass', value: 0}, {choice: 'water', value: 1}, {choice: 'fire', value: 2}];
+// const choices = [{choice: 'grass', value: 0}, {choice: 'water', value: 1}, {choice: 'fire', value: 2}];
 const buttons = document.querySelectorAll('button');
 // const wtr = document.querySelector('#water');
 // const grs = document.querySelector('#grass');
@@ -36,47 +36,44 @@ let gameState = 'idle';
 
 //Game Loop
 /*
-    1. Player selects move
-    2. Computer selects move
-    3. Calculate logic
-    4. Update game state
+1. Player selects move
+2. Computer selects move
+3. Calculate logic
+4. Update game state
 */
 if(gameState !== 'win' && gameState !== 'lose') {
-    //1. Player Selects Move
-    let playerChoice = '';
-    // buttons.forEach((button) => {
-    //     button.addEventListener('click', () => {
-    //         getPlayerChoice();
-    //     }); 
-    // });
-
-    /* This One Works! */
     buttons.forEach((button) => {
-
         // and for each one we add a 'click' listener
         button.addEventListener('click', () => {
-          playerChoice = getPlayerChoice(button.id);
+            //1. Computer Selects Move
+            let aiChoice = Math.floor(Math.random() * 3);
+
+            //2. Player Selects Move
+            let playerChoice = getPlayerChoice(button.id);
+            
+            //3. Calculate Logic
+            let roundResult = roundLogic(playerChoice, aiChoice);
+
         });
-      });
+    });
 
-    alert(`${playerChoice}`)
 
-    // grs.onclick = () => ButtonSelect('grass');
-    // wtr.onclick = () => ButtonSelect('water');
-    // fir.onclick = () => ButtonSelect('fire');
-
-    //2. Computer Selects Move
-    let aiChoice = choices[Math.floor(Math.random() * 3)];
-
-    //3. Calculate Logic
     
 }
 
-function getPlayerChoice(buttonChoice) {
-    if(buttonChoice === 'grass') {playerChoice = 0;}
-    else if(buttonChoice === 'water') {playerChoice = 1;}
-    else if(buttonChoice === 'fire') {playerChoice = 2;}
-    else {return null;} 
+function getPlayerChoice(type) {
+    if(type === "grass"){return 0;}
+    else if(type === "water"){return 1;}
+    else if(type == "fire"){return 2;}
+    else{console.error("getPlayerChoice() invalid type"); return null;}
+}
 
-    return playerChoice;
+function roundLogic(playerChoice, aiChoice) {
+    console.log(`Player Choice: ${playerChoice}\n AI Choice: ${aiChoice}`);
+    
+    if(playerChoice === aiChoice) {return 0;}
+    else if(playerChoice === 0) {return aiChoice === 1 ? 1 : -1;}
+    else if(playerChoice === 1) {return aiChoice === 2 ? 1 : -1;}
+    else if(playerChoice === 2) {return aiChoice === 0 ? 1 : -1;}
+    else {console.error("roundLogic() invalid choice"); return null;}
 }
