@@ -31,7 +31,6 @@ const link = document.createElement("a");
     - Disable Buttons
 */
 let gameState = 'idle';
-
 let aiScore = 0;
 let playerScore = 0;
 
