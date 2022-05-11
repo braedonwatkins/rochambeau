@@ -47,8 +47,8 @@ buttons.forEach((button) => {
 */
 function gameLoop(button) {
     //0. Check Win/Lose
-    gameState = setGameState(button, gameState);
-    if(gameState !== 'active'){return;}
+    if(gameState === 'idle'){gameState = 'active';}
+    else if(gameState !== 'active'){return;}
 
     //1. Computer Selects Move
     let aiChoice = Math.floor(Math.random() * 3);
@@ -63,6 +63,8 @@ function gameLoop(button) {
     if(roundResult > 0){playerScore++;}
     else if(roundResult < 0){aiScore++;}
     console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
+
+    gameState = setGameState(button, gameState);
 }
 
 // take button info and turn into numeric choice 
@@ -96,7 +98,7 @@ function setGameState(button, gameState) {
     }
     else if(gameState === 'lose') {
         document.querySelector('.points').setAttribute("style","display:none");
-        document.querySelector('.win').setAttribute("style","display:flex");
+        document.querySelector('.lose').setAttribute("style","display:flex");
 
         button.removeEventListener('click', () => gameLoop(button));
     }
