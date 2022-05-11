@@ -51,7 +51,7 @@ if(gameState !== 'win' && gameState !== 'lose') {
             //2. Player Selects Move
             let playerChoice = getPlayerChoice(button.id);
             
-            //3. Calculate Logic
+            //3. Calculate Round Logic
             let roundResult = roundLogic(playerChoice, aiChoice);
 
         });
@@ -61,6 +61,7 @@ if(gameState !== 'win' && gameState !== 'lose') {
     
 }
 
+// take button info and turn into numeric choice 
 function getPlayerChoice(type) {
     if(type === "grass"){return 0;}
     else if(type === "water"){return 1;}
@@ -68,9 +69,10 @@ function getPlayerChoice(type) {
     else{console.error("getPlayerChoice() invalid type"); return null;}
 }
 
+// determine winner of each round
 function roundLogic(playerChoice, aiChoice) {
     console.log(`Player Choice: ${playerChoice}\n AI Choice: ${aiChoice}`);
-    
+
     if(playerChoice === aiChoice) {return 0;}
     else if(playerChoice === 0) {return aiChoice === 1 ? 1 : -1;}
     else if(playerChoice === 1) {return aiChoice === 2 ? 1 : -1;}
