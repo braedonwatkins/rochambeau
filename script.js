@@ -87,23 +87,27 @@ function roundLogic(playerChoice, aiChoice) {
 }
 
 function setGameState(button, gameState) {
+    document.querySelector('#your-points').innerHTML = `Your Points: ${playerScore}`;
+    document.querySelector('#ai-points').innerHTML = `AI Points: ${aiScore}`;
+
     if(playerScore >= 5){gameState = 'win';}
     else if(aiScore >= 5){gameState = 'lose';}
 
     if(gameState === 'win'){
-        document.querySelector('.points').setAttribute("style","display:none");
+        // document.querySelector('.points').setAttribute("style","display:none");
         document.querySelector('.win').setAttribute("style","display:flex");
 
         button.removeEventListener('click', () => gameLoop(button));
     }
     else if(gameState === 'lose') {
-        document.querySelector('.points').setAttribute("style","display:none");
+        // document.querySelector('.points').setAttribute("style","display:none");
         document.querySelector('.lose').setAttribute("style","display:flex");
 
         button.removeEventListener('click', () => gameLoop(button));
     }
     else {
-        gameState = 'active';
+
+        // gameState = 'active';
         document.querySelector('.points').setAttribute("style","display:flex");
     }
     
