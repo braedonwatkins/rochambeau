@@ -50,6 +50,8 @@ ul {
     justify-content: space-evenly;
     align-items: baseline;
 
+    padding: 32px 0px;
+
     border: solid green;
 }
 
