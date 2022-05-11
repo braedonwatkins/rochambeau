@@ -35,30 +35,46 @@ let gameState = 'idle';
 1. Player selects move
 2. Computer selects move
 3. Calculate logic
-4. Update game state
+4. Update Scores
+5. Check Win/Lose
 */
-if(gameState !== 'win' && gameState !== 'lose') {
-    buttons.forEach((button) => {
-        // and for each one we add a 'click' listener
-        button.addEventListener('click', () => {
-            //update game state
-            if(gameState === 'idle') {gameState = 'active';}
+let aiScore = 0;
+let playerScore = 0;
 
-            //1. Computer Selects Move
-            let aiChoice = Math.floor(Math.random() * 3);
+buttons.forEach((button) => {
+    button.addEventListener('click', () => gameLoop(button));
+});
 
-            //2. Player Selects Move
-            let playerChoice = getPlayerChoice(button.id);
-            
-            //3. Calculate Round Logic
-            let roundResult = roundLogic(playerChoice, aiChoice);
+function gameLoop(button) {
+    //update game state
+    if(gameState === 'idle') {gameState = 'active';}
+    else if(gameState === 'win') {
+        button.removeEventListener('click', () => gameLoop(button));
+        return;
+    }
+    else if(gameState === 'lose') {
+        button.removeEventListener('click', () => gameLoop(button));
+        return;
+    }
 
-            //4. Calculate 
-        });
-    });
+    //1. Computer Selects Move
+    let aiChoice = Math.floor(Math.random() * 3);
 
-
+    //2. Player Selects Move
+    let playerChoice = getPlayerChoice(button.id);
     
+    //3. Calculate Round Logic
+    let roundResult = roundLogic(playerChoice, aiChoice);
+
+    //4. Update Scores
+    if(roundResult > 0){playerScore++;}
+    else if(roundResult < 0){aiScore++;}
+    console.log(`AI Score: ${aiScore} Player Score: ${playerScore}`);
+
+    //5. Check Win/Lose
+    if(playerScore >= 5){gameState = 'win';}
+    else if(aiScore >= 5){gameState = 'lose';}
+    console.log(`Game State: ${gameState}`);
 }
 
 // take button info and turn into numeric choice 
