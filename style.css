@@ -2,6 +2,11 @@ body, html {
     height: 100vh;
 }
 
+a{
+    text-decoration: none;
+    /* color: pink; */
+}
+
 body {
     display: flex;
     flex-direction: column;
