@@ -65,7 +65,7 @@ ul {
 }
 
 .buttons {
-    display: flex;
+    display: inline-flex;
     flex: 10 1 auto;
     flex-direction: row;
     justify-content: space-around;
@@ -74,16 +74,17 @@ ul {
     flex-wrap: wrap;
 
     padding: 32px 0px;
-
     /* border: solid green; */
 }
 
 button {
     padding: 16px 64px;
+    margin: 64px;
     border-radius: 8px;
     color: white;
   
     font-size: 12px;
+    /* border: solid red; */
 }
 
 
