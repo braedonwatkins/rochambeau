@@ -6,20 +6,21 @@ html, body {
 }
 
 body {
-  background: linear-gradient(-60deg, rgb(65, 105, 225, 0.5) 50%, rgb(178, 34, 34, 0.5) 50%);
-  background-size: 400% 400%;
+  background: linear-gradient(-60deg, rgb(65, 105, 225, 0.5), rgb(178, 34, 34, 0.5),
+  rgb(34, 139, 34, 0.5));
+  background-size: 500% 500%;
   animation: slide 15s ease-in-out infinite alternate;
 }
 
 
 @keyframes slide {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 33%;
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 66%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 66%;
     }
 }
