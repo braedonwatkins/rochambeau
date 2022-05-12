@@ -3,15 +3,6 @@ body, html {
     margin: 0;
 }
 
-/* a{
-    text-decoration: none;
-    color: lightskyblue;
-} */
-/* 
-a:hover {
-    background-color: honeydew;
-} */
-
 body {
     display: flex;
     flex-direction: column;
@@ -57,13 +48,8 @@ ul {
     margin: 0px 64px;
 
     text-align: center;
-    
-    /* display: flex;
-    flex: 1 1 auto;
-    justify-content: center;
-    align-items: center;
 
-    border: solid red; */
+    /* border: solid red; */
 }
 
 .spacing {
@@ -124,15 +110,10 @@ button#fire:hover {
     background: salmon;
 }
 
-/* button:focus {
-    background: lightblue;
-    border: 10px solid lightblue;
-} */
-
 .footer {
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: rgb(211, 211, 211, 0.45);
 
     /* border: solid yellow; */
 }
