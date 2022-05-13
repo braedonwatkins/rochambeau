@@ -99,7 +99,7 @@ button#water {
     border: none;
 }
 button#water:hover {
-    border-bottom: solid 5px hwb(225 13% 19%);
+    border-bottom: solid 5px hsl(225, 73%, 47%);
     transform: translateY(-5px);
     cursor: pointer;
 }
