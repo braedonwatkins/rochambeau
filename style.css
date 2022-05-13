@@ -141,6 +141,8 @@ button#fire:active {
 .footer {
     justify-content: center;
     align-items: center;
+
+    margin-bottom: 20px;
     /* background-color: rgba(50, 48, 56, 0.33) */
 
     /* border: solid yellow; */
