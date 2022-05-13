@@ -9,7 +9,7 @@ body {
   background: linear-gradient(-60deg, rgb(65, 105, 225, 0.5), rgb(178, 34, 34, 0.5),
   rgb(34, 139, 34, 0.5));
   background-size: 500% 500%;
-  animation: slide 15s ease-in-out infinite alternate;
+  animation: slide 30s ease-in-out infinite alternate;
 }
 
 
