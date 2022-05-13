@@ -74,7 +74,6 @@ ul {
     flex-wrap: wrap;
 
     padding: 32px 0px;
-    /* border: solid green; */
 }
 
 button {
@@ -90,26 +89,44 @@ button {
 
 button#water {
     background: royalblue;
-    
+    border: none;
 }
 button#water:hover {
-    background: deepskyblue;
+    border-bottom: solid 5px hwb(225 13% 19%);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+button#water:active {
+    transform:translateY(5px);
+    border: solid 0px;
 }
 
 button#grass {
     background: forestgreen;
-    
+    border: none;    
 }
 button#grass:hover {
-    background: darkseagreen;
+    border-bottom: solid 5px hsl(120, 61%, 24%);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+button#grass:active {
+    transform:translateY(5px);
+    border: solid 0px;
 }
 
 button#fire {
     background: firebrick;
-    
+    border: none;
 }
 button#fire:hover {
-    background: salmon;
+    border-bottom: solid 5px hsl(0, 68%, 32%);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+button#fire:active {
+    transform:translateY(5px);
+    border: solid 0px;
 }
 
 .footer {
