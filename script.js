@@ -100,7 +100,7 @@ function showScore(){
 
 function setGameState(button, gameState) {
     if(playerScore >= 5){gameState = 'win';}
-    else if(aiScore >= 5){gameState = 'lose';}
+    else if(aiScore >= 5){gameState = 'loss';}
 
     if(gameState === 'win'){
         resultSpan.innerText = 'You Won! '; 
@@ -111,7 +111,7 @@ function setGameState(button, gameState) {
 
         button.removeEventListener('click', () => gameLoop(button));
     }
-    else if(gameState === 'lose') {
+    else if(gameState === 'loss') {
         resultSpan.innerText = 'You Lost! '; 
       
         link.setAttribute('href', `./index.html`);
