@@ -133,8 +133,8 @@ function setGameState(button, gameState) {
 function colorChange(choice) {
     let retSpan = document.createElement("span");
 
-    if(choice === 'grass') {return '<span style="color:forestgreen; text-shadow: -1px 1px 0 hsl(120, 61%, 24%);">grass</span>';}
-    else if(choice === 'water') {return '<span style="color:royalblue; text-shadow: -1px 1px 0 hsl(225, 73%, 47%);">water</span>';}
-    else if(choice === 'fire') {return '<span style="color:firebrick; text-shadow: -1px 1px 0 hsl(0, 68%, 32%);">fire</span>';}
+    if(choice === 'grass') {return '<span class = "grass-text">grass</span>';}
+    else if(choice === 'water') {return '<span class = "water-text">water</span>';}
+    else if(choice === 'fire') {return '<span class = "fire-text">fire</span>';}
     else {console.error("colorChange() invalid choice"); return null;}
 }
