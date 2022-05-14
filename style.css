@@ -37,6 +37,19 @@ a:hover {
     color: hsla(255, 8%, 10%, 0.9);
 }
 
+.fire-text {
+    color: firebrick;
+    text-shadow: -1px 1px 0 hsl(0, 68%, 32%);
+}
+.water-text {
+    color: royalblue;
+    text-shadow: -1px 1px 0 hsl(225, 73%, 47%);
+}
+.grass-text {
+    color: forestgreen;
+    text-shadow: -1px 1px 0 hsl(120, 61%, 24%);
+}
+
 
 .header, .footer {
     display: flex;
@@ -97,7 +110,7 @@ button {
 
 
 button#water {
-    background: royalblue;
+    background: hsl(225, 73%, 57%);
     border: none;
     border-bottom: solid 5px hsl(225, 73%, 47%);
     transform: translateY(-5px);
