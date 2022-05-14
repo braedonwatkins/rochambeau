@@ -99,11 +99,12 @@ button {
 button#water {
     background: royalblue;
     border: none;
-}
-button#water:hover {
     border-bottom: solid 5px hsl(225, 73%, 47%);
     transform: translateY(-5px);
     cursor: pointer;
+}
+button#water:hover {
+    background: hsl(225, 73%, 54%);
 }
 button#water:active {
     transform:translateY(5px);
@@ -112,12 +113,14 @@ button#water:active {
 
 button#grass {
     background: forestgreen;
-    border: none;    
-}
-button#grass:hover {
+    border: none;
     border-bottom: solid 5px hsl(120, 61%, 24%);
     transform: translateY(-5px);
     cursor: pointer;
+
+}
+button#grass:hover {
+    background: green;
 }
 button#grass:active {
     transform:translateY(5px);
@@ -127,11 +130,12 @@ button#grass:active {
 button#fire {
     background: firebrick;
     border: none;
-}
-button#fire:hover {
     border-bottom: solid 5px hsl(0, 68%, 32%);
     transform: translateY(-5px);
     cursor: pointer;
+}
+button#fire:hover {
+    background: hsl(0, 68%, 38%);
 }
 button#fire:active {
     transform:translateY(5px);
