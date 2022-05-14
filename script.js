@@ -66,7 +66,9 @@ function gameLoop(button) {
 
     
     // Maybe change variable color based on choice? Could be fun
-    resultSpan.innerText = `You Chose ${playerChoice}\n AI Chose ${aiChoice}`;
+    let playerSpan = colorChange(playerChoice);
+    let aiSpan = colorChange(aiChoice);
+    resultSpan.innerHTML = `You Chose ${playerSpan}<br> AI Chose ${aiSpan}`;
 
     
     //3. Calculate Round Logic
@@ -125,4 +127,14 @@ function setGameState(button, gameState) {
     
     console.log(`Game State: ${gameState}`);
     return gameState;
+}
+
+
+function colorChange(choice) {
+    let retSpan = document.createElement("span");
+
+    if(choice === 'grass') {return '<span style="color:forestgreen; text-shadow: -1px 1px 0 hsl(120, 61%, 24%);">grass</span>';}
+    else if(choice === 'water') {return '<span style="color:royalblue; text-shadow: -1px 1px 0 hsl(225, 73%, 47%);">water</span>';}
+    else if(choice === 'fire') {return '<span style="color:firebrick; text-shadow: -1px 1px 0 hsl(0, 68%, 32%);">fire</span>';}
+    else {console.error("colorChange() invalid choice"); return null;}
 }
