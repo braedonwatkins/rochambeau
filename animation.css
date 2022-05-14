@@ -21,24 +21,24 @@ body {
   height: 100%;
   z-index: -1;
   position: absolute;
-  background: linear-gradient(-60deg, rgba(65, 105, 225, 0.33) 50%, rgba(178, 34, 34, 0.33) 50%);
-  background-size: 400% 400%;
+  background: linear-gradient(-60deg, hsla(34, 80%, 46%, 0.33) 50%, hsla(310, 80%, 46%, 0.33) 50%);
+  background-size: 300% 300%;
 
   animation: slide 11s ease-in-out infinite alternate;
 
 }
 
 .b1 {
-  background: linear-gradient(-60deg, rgba(65, 105, 225, 0.33) 50%,rgba(34, 139, 34, 0.33) 50%);
+  background: linear-gradient(-60deg, hsla(34, 80%, 46%, 0.33) 50%, hsla(180, 80%, 35%, 0.33) 50%);
   animation-direction: alternate-reverse;
   animation-duration: 13s;
-  background-size: 400% 400%;
+  background-size: 300% 300%;
 }
 
 .b2 {
-  background: linear-gradient(-60deg, rgba(178, 34, 34, 0.33) 50%,rgba(34, 139, 34, 0.33) 50%);
+  background: linear-gradient(-60deg, hsla(310, 80%, 46%, 0.33) 50%, hsla(180, 80%, 35%, 0.33) 50%);
   animation-duration: 17s;
-  background-size: 400% 400%; 
+  background-size: 300% 300%; 
 }
 
 
